@@ -57,12 +57,13 @@ module Tika
     end
 
     private
-    
+
     def connection
       @connection ||= Net::HTTP.new(host, port)
     end
 
     def execute(request, opts={})
+      request.read_timeout = 3600 # 1 hour
       request.execute(connection, opts)
     end
 
