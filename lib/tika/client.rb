@@ -63,7 +63,6 @@ module Tika
     end
 
     def execute(request, opts={})
-      request.read_timeout = 3600 # 1 hour
       request.execute(connection, opts)
     end
 
