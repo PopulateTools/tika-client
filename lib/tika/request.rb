@@ -14,7 +14,7 @@ module Tika
     end
 
     attr_reader :connection, :options
-    
+
     def self.execute(connection, options={})
       request = new(connection, options)
       request.execute
@@ -38,7 +38,9 @@ module Tika
     end
 
     def handle_response(response)
-      response.body
+      if response.code.to_i <= 299
+        response.body
+      end
     end
 
     private

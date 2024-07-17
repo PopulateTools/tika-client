@@ -17,7 +17,7 @@ module Tika
       let(:file) { File.new(File.join(FIXTURE_DIR, "Lorem_ipsum.pdf")) }
       it "should return the metadata of the file" do
         metadata = subject.get_metadata(file: file, content_type: "application/pdf")
-        expect(metadata["Creation-Date"]).to eq("2015-02-15T01:54:41Z")
+        expect(metadata["pdf:docinfo:created"]).to eq("2015-02-15T01:54:41Z")
       end
     end
 

@@ -20,6 +20,8 @@ module Tika
       end
 
       def handle_response(response)
+        return {} if response.body.nil? || response.body.empty?
+
         JSON.load(response.body)
       end
     end
